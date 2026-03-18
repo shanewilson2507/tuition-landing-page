@@ -1,6 +1,7 @@
 import Script from "next/script";
-import { BookingForm } from "./BookingForm";
-import { siteConfig } from "./siteConfig";
+import { BookingForm } from "@/components/BookingForm";
+import { siteConfig } from "@/components/siteConfig";
+import { getSiteUrl } from "@/lib/siteUrl";
 
 const faqs = [
   {
@@ -26,6 +27,7 @@ function classNames(...values: Array<string | false | null | undefined>) {
 }
 
 export function LandingPage() {
+  const base = getSiteUrl().toString().replace(/\/$/, "");
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
@@ -33,7 +35,7 @@ export function LandingPage() {
     telephone: siteConfig.primaryPhoneE164,
     email: siteConfig.primaryEmail,
     areaServed: siteConfig.location,
-    url: "https://example.com/",
+    url: `${base}/`,
     description:
       "High-quality 1:1 tuition tailored to your goals. Book a lesson in minutes.",
   };

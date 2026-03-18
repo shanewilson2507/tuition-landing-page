@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { siteConfig, subjects } from "./siteConfig";
+import { siteConfig, subjects } from "@/components/siteConfig";
 
 type FormState = {
   parentOrStudentName: string;
